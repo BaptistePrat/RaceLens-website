@@ -1,0 +1,891 @@
+/* Styles pour le titre centré avec espacement réduit */
+.centered-title-container {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 5rem 0 2rem 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.centered-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    width: 100%;
+}
+
+.centered-divider {
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0761ef, rgba(7, 97, 239, 0.2));
+    margin: 0.5rem auto 0 auto;
+    animation: expandWidth 1.2s ease forwards;
+    animation-delay: 0.8s;
+}
+
+/* Styles pour le texte d'introduction avec espacement réduit */
+.section-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.section-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+/* Conteneur des packs avec espacement réduit */
+.packs-container.wider-cards {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 3rem auto 4rem auto;
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    padding: 0 30px;
+}
+
+/* Style des cartes de pack - plus larges */
+.wider-cards .pack-card {
+    background: rgba(15, 25, 40, 0.85);
+    border-radius: 12px;
+    overflow: hidden;
+    flex: 0 0 auto;
+    width: 320px;
+    max-width: 320px;
+    min-width: auto;
+    height: auto;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transform-origin: center bottom;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Animation pour chaque carte */
+.wider-cards .pack-card:nth-child(1) {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.wider-cards .pack-card:nth-child(2) {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.wider-cards .pack-card:nth-child(3) {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1s;
+}
+
+.wider-cards .pack-card.featured {
+    background: linear-gradient(135deg, rgba(7, 97, 239, 0.3) 0%, rgba(15, 25, 40, 0.95) 100%);
+    border: 1px solid rgba(7, 97, 239, 0.4);
+    box-shadow: 0 10px 20px rgba(7, 97, 239, 0.2); /* Lueur réduite */
+    transform: translateY(-15px) scale(1);
+    z-index: 2;
+    width: 340px;
+    max-width: 340px;
+    opacity: 0;
+}
+
+/* Nouveaux effets de survol améliorés */
+.wider-cards .pack-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+    z-index: 5;
+}
+
+.wider-cards .pack-card.featured:hover {
+    transform: translateY(-20px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(7, 97, 239, 0.4);
+    border-color: rgba(7, 97, 239, 0.8);
+}
+
+/* Effet de lueur au survol */
+.wider-cards .pack-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(100%);
+    pointer-events: none;
+}
+
+.wider-cards .pack-card:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wider-cards .pack-card.featured::before {
+    background: linear-gradient(135deg, 
+                rgba(7, 97, 239, 0) 0%,
+                rgba(7, 97, 239, 0.1) 50%, 
+                rgba(7, 97, 239, 0) 100%);
+}
+
+/* Ajout d'un effet de bordure brillante au survol */
+.wider-cards .pack-card::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+                transparent 0%,
+                rgba(255, 255, 255, 0.1) 25%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                rgba(255, 255, 255, 0.1) 75%,
+                transparent 100%);
+    z-index: -1;
+    border-radius: 14px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.wider-cards .pack-card:hover::after {
+    opacity: 1;
+}
+
+.wider-cards .pack-card.featured::after {
+    background: linear-gradient(45deg, 
+                transparent 0%,
+                rgba(7, 97, 239, 0.1) 25%, 
+                rgba(7, 97, 239, 0.3) 50%, 
+                rgba(7, 97, 239, 0.1) 75%,
+                transparent 100%);
+}
+
+/* Ajustements pour les éléments internes des cartes avec espacement réduit */
+.wider-cards .pack-header {
+    padding: 1.8rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.wider-cards .pack-card:hover .pack-header {
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.wider-cards .pack-card.featured:hover .pack-header {
+    background: rgba(7, 97, 239, 0.1);
+    border-bottom-color: rgba(7, 97, 239, 0.3);
+}
+
+.wider-cards .pack-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.wider-cards .pack-card:hover .pack-title {
+    transform: translateY(-3px);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.wider-cards .pack-card.featured:hover .pack-title {
+    text-shadow: 0 0 15px rgba(7, 97, 239, 0.5);
+}
+
+.wider-cards .price-amount {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #0761ef;
+    margin-bottom: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+.wider-cards .pack-card:hover .price-amount {
+    transform: scale(1.05);
+}
+
+.wider-cards .featured .price-amount {
+    color: white;
+    text-shadow: 0 0 10px rgba(7, 97, 239, 0.5);
+}
+
+.wider-cards .price-period {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+.wider-cards .pack-card:hover .price-period {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.wider-cards .pack-content {
+    padding: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.wider-cards .pack-card:hover .pack-content {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Styles pour la liste limitée à 5 points avec espacement réduit */
+.wider-cards .pack-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.2rem 0;
+}
+
+.wider-cards .pack-features li {
+    padding: 0.8rem 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.2rem;
+    transition: all 0.3s ease;
+}
+
+.wider-cards .pack-card:hover .pack-features li {
+    transform: translateX(5px);
+    color: white;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.wider-cards .pack-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #0761ef;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.wider-cards .pack-card:hover .pack-features li::before {
+    transform: scale(1.2);
+    left: 3px;
+}
+
+.wider-cards .featured .pack-features li::before {
+    color: white;
+}
+
+/* Styles pour la section "voir plus" avec espacement réduit */
+.wider-cards .see-more-features {
+    position: relative;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wider-cards .pack-card:hover .see-more-features {
+    transform: translateY(-3px);
+}
+
+.wider-cards .see-more-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    font-style: italic;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(7, 97, 239, 0.1);
+    transition: all 0.3s ease;
+    border: 1px dashed rgba(7, 97, 239, 0.3);
+}
+
+.wider-cards .see-more-features:hover .see-more-text {
+    color: white;
+    background: rgba(7, 97, 239, 0.3);
+    border-color: rgba(7, 97, 239, 0.6);
+    transform: scale(1.05);
+    box-shadow: 0 3px 10px rgba(7, 97, 239, 0.3);
+}
+
+/* Tooltip pour afficher les fonctionnalités supplémentaires */
+.wider-cards .tooltip {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 25, 40, 0.95);
+    border: 1px solid rgba(7, 97, 239, 0.4);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 90%;
+    max-width: 280px;
+    z-index: 10;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.wider-cards .tooltip::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgba(7, 97, 239, 0.4);
+}
+
+.wider-cards .see-more-features:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(5px);
+}
+
+.wider-cards .tooltip ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wider-cards .tooltip ul li {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    padding-left: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.wider-cards .tooltip ul li:hover {
+    transform: translateX(3px);
+    color: white;
+}
+
+.wider-cards .tooltip ul li:last-child {
+    border-bottom: none;
+}
+
+.wider-cards .tooltip ul li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: #0761ef;
+    font-weight: bold;
+}
+
+/* Badge pour le pack recommandé */
+.wider-cards .pack-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #0761ef;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom-left-radius: 8px;
+    z-index: 3;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: slideInRight 0.6s ease forwards;
+    animation-delay: 1.2s;
+}
+
+.wider-cards .pack-card.featured:hover .pack-badge {
+    background: #0550c7;
+    box-shadow: 0 0 15px rgba(7, 97, 239, 0.6);
+    padding: 0.6rem 1.8rem;
+}
+
+/* Bouton du pack */
+.wider-cards .pack-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    background: rgba(7, 97, 239, 0.2);
+    color: white;
+    border: 1px solid #0761ef;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    position: relative;
+    overflow: hidden;
+}
+
+.wider-cards .pack-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.wider-cards .pack-card:hover .pack-button::before {
+    left: 100%;
+}
+
+.wider-cards .pack-button:hover {
+    background: #0761ef;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(7, 97, 239, 0.4);
+    letter-spacing: 0.05em;
+}
+
+.wider-cards .featured .pack-button {
+    background: #0761ef;
+}
+
+.wider-cards .featured .pack-button:hover {
+    background: #0550c7;
+    box-shadow: 0 5px 20px rgba(7, 97, 239, 0.6);
+}
+
+/* Animation pour le pack mis en avant - RÉDUITE */
+@keyframes subtleGlow {
+    0% {
+        box-shadow: 0 10px 20px rgba(7, 97, 239, 0.2);
+    }
+    50% {
+        box-shadow: 0 10px 25px rgba(7, 97, 239, 0.3);
+    }
+    100% {
+        box-shadow: 0 10px 20px rgba(7, 97, 239, 0.2);
+    }
+}
+
+.wider-cards .pack-card.featured {
+    animation: fadeInUp 0.8s ease forwards, subtleGlow 4s infinite 1.5s;
+}
+
+/* Animations d'apparition */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUpFeatured {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes expandWidth {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 80px;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation spéciale pour la carte mise en avant */
+.wider-cards .pack-card.featured {
+    animation: fadeInUpFeatured 0.8s ease forwards;
+    animation-delay: 0.8s;
+}
+
+/* Responsive avec espacement réduit */
+@media (max-width: 1200px) {
+    .packs-container.wider-cards {
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .packs-container.wider-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+    
+    .wider-cards .pack-card,
+    .wider-cards .pack-card.featured {
+        width: 100%;
+        max-width: 380px;
+        margin-bottom: 0;
+    }
+    
+    .wider-cards .pack-card.featured {
+        order: -1;
+    }
+    
+    .centered-title {
+        font-size: 3rem;
+    }
+    
+    .section-intro {
+        margin-bottom: 2.5rem;
+    }
+    
+    /* Ajustement du tooltip en mode mobile */
+    .wider-cards .tooltip {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wider-cards .pack-card,
+    .wider-cards .pack-card.featured {
+        max-width: 320px;
+    }
+    
+    .centered-title-container {
+        padding: 4rem 0 1.5rem 0;
+    }
+    
+    /* Ajustement du tooltip en mode très petit écran */
+    .wider-cards .tooltip {
+        max-width: 260px;
+    }
+}
+
+/* Réduction de l'espace entre les sections */
+.section + .section,
+section + section,
+.section + section,
+section + .section {
+    margin-top: -2rem;
+}
+
+/* Ajustement pour éviter les problèmes de z-index */
+section, .section {
+    position: relative;
+    z-index: 1;
+}
+
+/* S'assurer que la section des offres est au-dessus des autres */
+section:has(.packs-container),
+.section:has(.packs-container) {
+    z-index: 2;
+}
+
+/* Styles pour la section "Nos réalisations" avec 4 créations alignées */
+.realisations-section {
+    padding: 5rem 0 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.realisations-title-container {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.realisations-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    width: 100%;
+}
+
+.realisations-divider {
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0761ef, rgba(7, 97, 239, 0.2));
+    margin: 0.5rem auto 0 auto;
+    animation: expandWidth 1.2s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.realisations-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.realisations-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+/* Grille de 4 créations */
+.realisations-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Style des cartes de réalisation */
+.realisation-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+    height: 0;
+    padding-bottom: 100%; /* Ratio carré 1:1 */
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Animation séquentielle pour les cartes */
+.realisation-card:nth-child(1) {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.realisation-card:nth-child(2) {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.realisation-card:nth-child(3) {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.realisation-card:nth-child(4) {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.realisation-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.realisation-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.realisation-card:hover .realisation-image {
+    transform: scale(1.1);
+}
+
+.realisation-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    padding: 1.5rem;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.realisation-card:hover .realisation-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.realisation-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.realisation-category {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(7, 97, 239, 0.3);
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.realisation-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+/* Bouton "Voir plus" */
+.realisations-more {
+    text-align: center;
+    margin-top: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.realisations-more-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: rgba(7, 97, 239, 0.2);
+    color: white;
+    border: 1px solid #0761ef;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    position: relative;
+    overflow: hidden;
+}
+
+.realisations-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.realisations-more-btn:hover {
+    background: #0761ef;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(7, 97, 239, 0.4);
+    letter-spacing: 0.05em;
+}
+
+.realisations-more-btn:hover::before {
+    left: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .realisations-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .realisation-card:nth-child(4) {
+        display: none; /* Cacher la 4ème carte sur tablette large */
+    }
+}
+
+@media (max-width: 992px) {
+    .realisations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+    
+    .realisation-card:nth-child(4) {
+        display: block; /* Réafficher la 4ème carte */
+    }
+    
+    .realisations-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .realisations-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .realisation-card {
+        padding-bottom: 75%; /* Ratio 4:3 sur mobile */
+    }
+    
+    .realisations-title-container {
+        padding-bottom: 1.5rem;
+    }
+    
+    .realisations-title {
+        font-size: 2.5rem;
+    }
+    
+    .realisations-intro {
+        margin-bottom: 2rem;
+    }
+} 

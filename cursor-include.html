@@ -1,0 +1,110 @@
+<!-- DÉBUT DU CODE DU CURSEUR PERSONNALISÉ -->
+<style>
+/* Masquer le curseur par défaut sur tous les éléments */
+html, body, a, button, input, select, textarea, div, span, p, h1, h2, h3, h4, h5, h6, img, svg, canvas, *:not(.cursor-dot):not(.cursor-dot-outline) {
+    cursor: none !important;
+}
+
+/* Styles pour les éléments du curseur personnalisé */
+.cursor-dot {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #0761ef;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+    opacity: 1;
+}
+
+.cursor-dot-outline {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(7, 97, 239, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, border-color 0.3s;
+    opacity: 1;
+}
+
+.cursor-hover.cursor-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+}
+
+.cursor-hover.cursor-dot-outline {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+</style>
+
+<!-- Éléments HTML du curseur -->
+<div class="cursor-dot"></div>
+<div class="cursor-dot-outline"></div>
+
+<script>
+// Script du curseur personnalisé
+(function() {
+    const cursor = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-dot-outline');
+    
+    if (!cursor || !cursorOutline) return;
+    
+    // Position initiale
+    let mouseX = 0;
+    let mouseY = 0;
+    
+    // Fonction pour mettre à jour la position des curseurs
+    function updateCursorPosition(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Positionner directement les éléments du curseur
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+        cursorOutline.style.left = mouseX + 'px';
+        cursorOutline.style.top = mouseY + 'px';
+    }
+    
+    // Écouteur d'événement pour le mouvement de la souris
+    document.addEventListener('mousemove', updateCursorPosition);
+    
+    // Ajout des classes pour les effets de survol
+    const interactiveElements = 'a, button, .btn-outline, .cta-button, .nav-item, .social-link, .faq-question, input, select, textarea, [role="button"]';
+    
+    document.querySelectorAll(interactiveElements).forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            cursor.classList.add('cursor-hover');
+            cursorOutline.classList.add('cursor-hover');
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-hover');
+            cursorOutline.classList.remove('cursor-hover');
+        });
+    });
+    
+    // Gestion de la visibilité du curseur
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+        cursorOutline.style.opacity = '1';
+    });
+    
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+        cursorOutline.style.opacity = '0';
+    });
+})();
+</script>
+<!-- FIN DU CODE DU CURSEUR PERSONNALISÉ --> 

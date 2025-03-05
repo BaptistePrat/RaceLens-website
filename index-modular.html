@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaceLens | Sport Automobile Photography</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Éléments de curseur personnalisé -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-dot-outline"></div>
+    
+    <!-- Canvas pour les particules -->
+    <div class="particles">
+        <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- Menu latéral fixe -->
+    <nav class="side-nav">
+        <div class="nav-brand">
+            <div class="logo-container">
+                <img src="assets/Logo_Blanc.png" alt="RaceLens Logo" class="logo-img">
+            </div>
+        </div>
+
+        <div class="nav-menu">
+            <a href="#home" class="nav-item active">
+                <div class="nav-item-content">
+                    <div class="nav-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Accueil</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </a>
+            
+            <a href="#about" class="nav-item">
+                <div class="nav-item-content">
+                    <div class="nav-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">À Propos</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </a>
+            
+            <a href="#story" class="nav-item">
+                <div class="nav-item-content">
+                    <div class="nav-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Historique</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </a>
+            
+            <a href="#services" class="nav-item">
+                <div class="nav-item-content">
+                    <div class="nav-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Services</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </a>
+            
+            <a href="#portfolio" class="nav-item">
+                <div class="nav-item-content">
+                    <div class="nav-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Portfolio</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </a>
+            
+            <a href="#offers" class="nav-item">
+                <div class="nav-item-content">
+                    <div class="nav-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Offres</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </a>
+            
+            <a href="#realisations" class="nav-item">
+                <div class="nav-item-content">
+                    <div class="nav-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Réalisations</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </a>
+            
+            <a href="#contact" class="nav-item">
+                <div class="nav-item-content">
+                    <div class="nav-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Contact</span>
+                </div>
+                <div class="nav-indicator"></div>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Les sections du site seront chargées dynamiquement ou incluses depuis le fichier index.html d'origine -->
+        <section id="home" class="section section-home active">
+            <!-- Contenu de la section d'accueil -->
+        </section>
+        
+        <section id="about" class="section section-about">
+            <!-- Contenu de la section À propos -->
+        </section>
+        
+        <section id="story" class="section section-story">
+            <!-- Contenu de la section Historique -->
+        </section>
+        
+        <section id="services" class="section section-services">
+            <!-- Contenu de la section Services -->
+        </section>
+        
+        <section id="portfolio" class="section section-portfolio">
+            <!-- Contenu de la section Portfolio -->
+        </section>
+        
+        <section class="offers-section" id="offers">
+            <!-- Contenu de la section Offres -->
+        </section>
+        
+        <section class="realisations-section" id="realisations">
+            <!-- Contenu de la section Réalisations -->
+            <div class="container">
+                <div class="realisations-header">
+                    <h2 class="section-title">Nos Réalisations</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-description">Découvrez nos meilleurs projets en photographie automobile</p>
+                </div>
+                
+                <div class="realisations-filters">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="rallye">Rallye</button>
+                    <button class="filter-btn" data-filter="circuit">Circuit</button>
+                    <button class="filter-btn" data-filter="paddock">Paddock</button>
+                </div>
+                
+                <div id="realisations-grid">
+                    <!-- Les éléments seront ajoutés dynamiquement -->
+                </div>
+                
+                <div class="realisations-footer">
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled>Précédent</button>
+                        <span class="page-indicator">1-4 sur 12 projets</span>
+                        <button class="pagination-btn">Suivant</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section section-contact">
+            <!-- Contenu de la section Contact -->
+        </section>
+    </main>
+
+    <footer>
+        <!-- Contenu du pied de page -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/Logo_Blanc.png" alt="RaceLens Logo" class="footer-logo-img">
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <a href="#home">Accueil</a>
+                        <a href="#about">À Propos</a>
+                        <a href="#services">Services</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#offers">Offres</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Contact</h3>
+                        <p><strong>Email:</strong> contact@racelens.fr</p>
+                        <p><strong>Téléphone:</strong> +33 6 12 34 56 78</p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Réseaux sociaux</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="18" cy="6" r="1" fill="currentColor"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.28-.03-.56-.08-.83A7.72 7.72 0 0023 3z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 RaceLens. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- JavaScript Modules -->
+    <script src="js/main.js"></script>
+    <script src="js/custom-cursor.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/realisations.js"></script>
+</body>
+</html> 

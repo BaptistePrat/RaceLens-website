@@ -1,0 +1,296 @@
+/* RaceLens - Style principal */
+
+/* 1. Styles de base */
+body {
+    background-color: rgba(0, 10, 25, 1); /* Fond uniforme pour tout le site */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Effet de dégradé global pour le fond */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(7, 97, 239, 0.05), transparent 70%),
+                radial-gradient(circle at 30% 70%, rgba(7, 97, 239, 0.03), transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Suppression des arrière-plans individuels des sections */
+section {
+    background-color: transparent !important; /* Force la transparence */
+    position: relative;
+    z-index: 1;
+    border: none !important; /* Supprime toute bordure */
+    box-shadow: none !important; /* Supprime toute ombre */
+    padding: 6rem 0;
+}
+
+/* 2. Layout général */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Style d'en-tête uniforme pour toutes les sections */
+.section-header {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.section-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #0761ef, rgba(7, 97, 239, 0.2));
+    margin-bottom: 1.5rem;
+}
+
+/* 3. Navigation latérale */
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px;
+    background-color: rgba(0, 10, 25, 0.9);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.3s ease;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-brand {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.logo-img {
+    width: 100%;
+    height: auto;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-item-content {
+    display: flex;
+    align-items: center;
+    padding-left: 28px;
+    width: 100%;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+}
+
+.nav-label {
+    margin-left: 15px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.nav-indicator {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to bottom, #0761ef, rgba(7, 97, 239, 0.5));
+    border-radius: 0 3px 3px 0;
+    transition: height 0.3s ease;
+}
+
+.nav-item:hover .nav-icon,
+.nav-item.active .nav-icon {
+    color: #fff;
+}
+
+.nav-item.active .nav-indicator {
+    height: 24px;
+}
+
+/* 4. Curseur personnalisé */
+.cursor-dot,
+.cursor-dot-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #0761ef;
+}
+
+.cursor-dot-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(7, 97, 239, 0.5);
+    transition: transform .3s ease;
+}
+
+.cursor-hover {
+    transform: translate(-50%, -50%) scale(1.5) !important;
+    background-color: rgba(7, 97, 239, 0.1);
+    border-color: rgba(7, 97, 239, 0.2);
+}
+
+/* 5. Orbes lumineux */
+.glow-orb {
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(60px);
+}
+
+/* 6. Responsive */
+@media (max-width: 992px) {
+    .section-header {
+        text-align: center;
+    }
+    
+    .section-title {
+        text-align: center;
+    }
+    
+    .section-divider {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .side-nav {
+        width: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 4rem 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* 7. Utilities */
+.text-highlight {
+    color: #0761ef;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 25px;
+    background: linear-gradient(135deg, #0761ef, rgba(7, 97, 239, 0.8));
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(7, 97, 239, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(7, 97, 239, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #0761ef;
+    color: #0761ef;
+}
+
+.btn-outline:hover {
+    background: rgba(7, 97, 239, 0.1);
+}
+
+/* 8. Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+} 
